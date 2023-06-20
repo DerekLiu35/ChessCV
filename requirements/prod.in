@@ -13,4 +13,4 @@ pillow>=8.4,<8.5
 torch
 torchvision
 # versioned to avoid breaking change in minor version update
-markupsafe<2.1
+markupsafe
