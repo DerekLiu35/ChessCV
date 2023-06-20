@@ -1,13 +1,16 @@
 """Base Dataset class."""
+import os
+from random import shuffle
 from typing import Any, Callable, Dict, Sequence, Tuple, Union
 
+import numpy as np
 from PIL import Image
 import torch
 import torch.utils.data
 
 SequenceOrTensor = Union[Sequence, torch.Tensor]
 
-root = '/content'
+root = '/content/ChessCV'
 train_size = 1000
 test_size = 500
 

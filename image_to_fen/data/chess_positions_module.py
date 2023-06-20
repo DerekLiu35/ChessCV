@@ -19,13 +19,17 @@ from torch.utils.data import random_split, DataLoader
 from torchvision.datasets import MNIST
 from torchvision import transforms
 
+import lightning as pl
+
 class ChessDataModule(pl.LightningDataModule):
-    def __init__(self, data_dir: str = "/content"):
+    def __init__(self, data_dir: str = Path("README.md").resolve().parents[0]):
         super().__init__()
         self.data_dir = data_dir
         self.transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
 
     def prepare_data(self):
+        DATA_DIRNAME = Path("README.md").resolve().parents[0]
+        DATA_DIRNAME / "data"
         if (DATA_DIRNAME / "train").exists():
           return
         # download

@@ -31,8 +31,8 @@ class ChessPositions:
     """
 
     def __init__(self):
-        pass
-    
+        DATA_DIRNAME = Path("README.md").resolve().parents[0]
+        DATA_DIRNAME / "data"
 
     def prepare_data(self):
         # if self.xml_filenames:
@@ -151,9 +151,8 @@ class ChessPositions:
 
 def _extract_raw_dataset(filename: Path, dirname: Path) -> None:
     print("Extracting IAM data")
-    with util.temporary_working_directory(dirname):
-        with zipfile.ZipFile(filename, "r") as zip_file:
-            zip_file.extractall()
+    with zipfile.ZipFile(filename, "r") as zip_file:
+      zip_file.extractall()
 
 
 def _get_ids_from_lwitlrt_split_file(filename: str) -> List[str]:
