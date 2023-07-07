@@ -10,7 +10,7 @@ from pytorch_lightning.utilities.rank_zero import rank_zero_info
 
 from image_to_fen.data.base_data_module import load_and_print_info
 from image_to_fen.data.chess_positions import ChessPositions
-from image_to_fen.data.util import BaseDataset, resize_image, ChessDataset, collate_fn
+from image_to_fen.data.util import BaseDataset, resize_image, ChessDataset, get_transform, collate_fn
 
 
 from torch.utils.data import random_split, DataLoader
@@ -42,7 +42,7 @@ class ChessDataModule(pl.LightningDataModule):
     def setup(self, stage: str = None):
         # Assign train/val datasets for use in dataloaders
         if stage == "train" or stage is None:
-            chess_full = ChessDataset(root=self.data_dir)
+            chess_full = ChessDataset(root=self.data_dir, transforms=get_transform(train=True))
             self.chess_train, self.chess_val = random_split(chess_full, [.8, .2])
 
         # Assign test dataset for use in dataloader(s)

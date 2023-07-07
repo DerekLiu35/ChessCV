@@ -7,10 +7,10 @@ import numpy as np
 from PIL import Image
 import torch
 import torch.utils.data
+import torchvision.transforms as T
 
 SequenceOrTensor = Union[Sequence, torch.Tensor]
 
-root = '/content/ChessCV'
 train_size = 1000
 test_size = 500
 
@@ -117,6 +117,31 @@ class BaseDataset(torch.utils.data.Dataset):
 
         return datum, target
 
+from torchvision.transforms import functional
+
+class ToTensor(object):
+    def __call__(self, image, target):
+        image = functional.to_tensor(image)
+        return image, target
+
+class Compose(object):
+    def __init__(self, transforms):
+        self.transforms = transforms
+
+    def __call__(self, image, target):
+        for t in self.transforms:
+            image, target = t(image, target)
+        return image, target
+
+def get_transform(train):
+    transforms = []
+    # converts the image, a PIL image, into a PyTorch Tensor
+    transforms.append(ToTensor())
+    if train:
+        # during training, randomly flip the training images
+        # and ground-truth for data augmentation
+        pass
+    return Compose(transforms)
 
 def convert_strings_to_labels(strings: Sequence[str], mapping: Dict[str, int], length: int) -> torch.Tensor:
     """
