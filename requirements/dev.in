@@ -25,3 +25,4 @@ pytorch-lightning
 lightning
 torchmetrics
 wandb
+torchvision
