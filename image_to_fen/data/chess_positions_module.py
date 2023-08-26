@@ -19,7 +19,7 @@ from torch.utils.data import random_split, DataLoader
 from torchvision.datasets import MNIST
 from torchvision import transforms
 
-import lightning as pl
+import pytorch_lightning as pl
 
 class ChessDataModule(pl.LightningDataModule):
     def __init__(self, data_dir: str = Path("README.md").resolve().parents[0]):

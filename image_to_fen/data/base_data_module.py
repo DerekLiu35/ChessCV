@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 from typing import Collection, Dict, Optional, Tuple, Union
 
-import lightning.pytorch as pl
+import pytorch_lightning as pl
 import torch
 from torch.utils.data import ConcatDataset, DataLoader
 
