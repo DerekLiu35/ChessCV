@@ -30,7 +30,7 @@ class ImageToFen:
             image = util.read_image_pil(image, grayscale=True)
         image = image.resize((200, 200))
         image = torchvision.transforms.PILToTensor()(image)/255
-        pred = self.model(image)[0]
+        pred = self.model([image])[1][0]
         nms_pred = apply_nms(pred, iou_thresh=0.2)
         pred_str = boxes_labels_to_fen(nms_pred['boxes'], nms_pred['labels'])
         return pred_str
