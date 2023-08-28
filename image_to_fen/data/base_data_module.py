@@ -13,7 +13,7 @@ from image_to_fen.data.util import BaseDataset
 
 
 def load_and_print_info(data_module_class) -> None:
-    """Load EMNISTLines and print info."""
+    """Load dataset and print info."""
     parser = argparse.ArgumentParser()
     data_module_class.add_to_argparse(parser)
     args = parser.parse_args()
