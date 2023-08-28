@@ -123,3 +123,9 @@ def download_url(url, filename):
     """Download a file from url to filename, with a progress bar."""
     with TqdmUpTo(unit="B", unit_scale=True, unit_divisor=1024, miniters=1) as t:
         urlretrieve(url, filename, reporthook=t.update_to, data=None)  # noqa: S310
+
+# the function takes the original prediction and the iou threshold.
+
+# function to convert a torchtensor back to PIL image
+def torch_to_pil(img):
+    return torchtrans.ToPILImage()(img).convert('RGB')
