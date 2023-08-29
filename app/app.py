@@ -1,4 +1,4 @@
-"""Provide an image of a chessboard and get the FEN representation of the board."""
+"""Provide an image of a chessboard and get the FEN (https://en.wikipedia.org/wiki/Forsyth–Edwards_Notation ) representation of the board."""
 import argparse
 import json
 import logging
