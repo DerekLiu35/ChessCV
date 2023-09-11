@@ -1,0 +1,6 @@
+.git
+.*_cache
+data
+Chess_object_detection.ipynb
+**/logs
+**lightning_logs

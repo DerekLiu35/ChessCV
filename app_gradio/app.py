@@ -11,7 +11,7 @@ from PIL import ImageStat
 from PIL.Image import Image
 import requests
 
-from image_to_fen.image_to_fen import ImageToFen
+from image_to_fen.fen import ImageToFen
 import image_to_fen.util as util
 
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # do not use GPU

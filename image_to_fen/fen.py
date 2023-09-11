@@ -8,7 +8,7 @@ import torchvision
 import numpy as np
 import re
 
-from image_to_fen import util
+import image_to_fen.util as util
 
 
 STAGED_MODEL_DIRNAME = Path(__file__).resolve().parent / "artifacts" / "image-to-fen"
@@ -104,3 +104,6 @@ def main():
     pred = image_to_fen.predict(args.image)
     print(f"Prediction: {pred}")
     
+    # image_to_fen/tests/support/boards/phpSrRLQ1.png
+if __name__ == "__main__":
+    main()
